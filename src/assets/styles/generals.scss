@@ -1,0 +1,244 @@
+@import "./variables.scss";
+
+body,
+p,
+h1,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Spartan", Verdana, sans-serif;
+  background: url("./images/bg-pattern-top-desktop.svg"), url("./images/bg-pattern-bottom-desktop.svg");
+  background-repeat: no-repeat;
+  background-position: top left, bottom right;
+  box-sizing: border-box;
+  @media (max-width: 1024px) {
+    margin-top: 50px;
+  }
+  @media (max-width: 824px) {
+    margin-top: 50px;
+  }
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #502050;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1 {
+  font-size: 16px;
+}
+
+.container {
+  max-width: 1240px;
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-template-areas:
+    "info rating rating"
+    "info rating rating"
+    "depoiments depoiments depoiments"
+    "footer footer footer";
+  @media (max-width: 1024px) {
+    margin: 50px 30px 0px 30px;
+  }
+  @media (max-width: 824px) {
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "info"
+      "rating"
+      "depoiments"
+      "footer";
+  }
+}
+
+.info {
+  grid-area: info;
+  h1 {
+    font-size: 3rem;
+    color: $purple;
+    margin-bottom: 10px;
+    @media (max-width: 425px) {
+      font-size: 2.25rem;
+    }
+  }
+  p {
+    color: $soft-purple;
+    font-weight: 500;
+    @media (max-width: 824px) {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+.rating {
+  grid-area: rating;
+  margin-left: 100px;
+  @media (max-width: 900px) {
+    margin-left: 30px;
+  }
+
+  .rating-container li {
+    display: flex;
+    & > div {
+      display: flex;
+      background: $light-soft-purple;
+      padding: 20px 30px;
+      border-radius: 8px;
+      @media (max-width: 824px) {
+        display: block;
+        margin: 0 auto;
+        width: 280px;
+        text-align: center;
+      }
+    }
+    & + li {
+      margin-top: 20px;
+    }
+  }
+
+  .rating-item-1 {
+    justify-content: flex-start;
+    @media (max-width: 824px) {
+      justify-content: unset;
+    }
+  }
+
+  .rating-item-2 {
+    justify-content: center;
+    @media (max-width: 824px) {
+      justify-content: unset;
+    }
+  }
+
+  .rating-item-3 {
+    justify-content: flex-end;
+    @media (max-width: 824px) {
+      justify-content: unset;
+    }
+  }
+
+  .stars {
+    display: flex;
+    margin-right: 20px;
+    @media (max-width: 824px) {
+      justify-content: center;
+      margin-bottom: 5px;
+      margin-right: 0px;
+    }
+    & img + img {
+      margin-left: 10px;
+    }
+  }
+
+  & span {
+    color: $purple;
+    font-weight: bold;
+  }
+}
+
+.depoiments {
+  grid-area: depoiments;
+  margin-top: 60px;
+  height: 300px;
+  @media (max-width: 824px) {
+    margin: 40px auto 0px auto;
+  }
+
+  .depoiments-container {
+    display: flex;
+    height: 350px;
+    @media (max-width: 824px) {
+      flex-direction: column;
+      align-content: center;
+      height: auto;
+    }
+    & li {
+      background: $purple;
+      padding: 30px;
+      border-radius: 8px;
+      width: 380px;
+      @media (max-width: 425px) {
+        width: unset;
+      }
+      & + li {
+        margin-left: 30px;
+        @media (max-width: 824px) {
+          margin-left: 0;
+          margin-top: 20px;
+        }
+      }
+      & > p {
+        color: $white;
+        margin: 30px 0;
+      }
+    }
+  }
+
+  .depoiments-item-1 {
+    align-self: flex-start;
+    @media (max-width: 1024px) {
+      align-self: unset;
+    }
+  }
+
+  .depoiments-item-2 {
+    align-self: center;
+    @media (max-width: 1024px) {
+      align-self: unset;
+    }
+  }
+
+  .depoiments-item-3 {
+    align-self: flex-end;
+    @media (max-width: 1024px) {
+      align-self: unset;
+    }
+  }
+
+  .buyer {
+    display: flex;
+    align-items: center;
+    & img {
+      border-radius: 50%;
+    }
+  }
+
+  .buyer-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    margin-left: 20px;
+    color: $white;
+    & p {
+      color: $soft-pink;
+      margin-top: 2px;
+    }
+  }
+}
+
+.attribution {
+  margin-top: 100px;
+  font-size: 11px;
+  text-align: center;
+  grid-area: footer;
+  & a {
+    color: hsl(228, 45%, 44%);
+  }
+}
